@@ -12,6 +12,13 @@ $(document).ready(function () {
     
   }
 
+  var displayMeal = function (meal){
+    $('#meal-recipe-title').text(meal.strMeal);
+    $('#meal-recipe-img').attr('src', meal.strMealThumb);
+    $('#meal-recipe-p').text(meal.strInstructions);
+
+  }
+
   $(".btn").on("click", function () {
 
     fetch(mealUrl)
@@ -20,6 +27,7 @@ $(document).ready(function () {
       })
       .then(function (data) {
         console.log(data);
+        displayMeal(data.meals[0]);
       })
       .catch(function (error) {
         console.log(error);
