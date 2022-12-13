@@ -1,7 +1,6 @@
-// http://www.themealdb.com/api/json/v1/1/random.php
-// http://www.thecocktaildb.com/api/json/v1/1/random.php
-var mealUrl = "http://www.themealdb.com/api/json/v1/1/random.php"
-var drinkUrl = "http://www.thecocktaildb.com/api/json/v1/1/random.php"
+
+var mealUrl = "https://www.themealdb.com/api/json/v1/1/random.php"
+var drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 
 
 $(document).ready(function () {
