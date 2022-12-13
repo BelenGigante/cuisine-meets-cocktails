@@ -1,0 +1,14 @@
+.body{
+    max-width: 90%;
+    background-color: rgb(177, 211, 212);
+
+}
+.card{
+    background-color: rgb(177, 211, 212);
+
+}
+.btn{
+    padding: 10px;
+    max-width: 200px;
+    background-color: rgb(118, 148, 149);
+}
