@@ -5,6 +5,12 @@ var drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 
 $(document).ready(function () {
 
+  var displayDrink = function (drink){
+    $('#drink-recipe-title').text(drink.strDrink);
+    $('#drink-recipe-img').attr('src', drink.strDrinkThumb);
+    $('#drink-recipe-p').text(drink.strInstructions);
+  }
+
   $(".btn").on("click", function () {
 
     fetch(mealUrl)
@@ -24,6 +30,7 @@ $(document).ready(function () {
       })
       .then(function (data) {
         console.log(data);
+        displayDrink(data.drinks[0]);
       })
       .catch(function (error) {
         console.log(error);
