@@ -19,7 +19,7 @@
         <h1 class="col-12 d-flex justify-content-center">Cuisine Meets Cocktail<i class="fas fa-stroopwafel"></i></h1>
     </header>
 
-    <section class="row p-2 justify-content-center">
+    <!--<section class="row p-2 justify-content-center">
         <div class="card p-4 m-4" style="width: 40rem;">
                 <h5>Type of Food</h5>
         </div>
@@ -27,8 +27,27 @@
         <div class="card p-4 m-4" style="width: 40rem;">
                 <h5>List Menu </h5>
                 <p class="card-text"></p>
-        </div>
-        <section class="row justify-content-center">
+        </div>-->
+<!--meal-->
+        <section class="row justify-content-center p-2">
+            <div class="card" style="width: 83rem;">
+                <div class="card-body">
+                    <h5>Meal</h5>
+                    <p class="form-check-inline">Are you ready for a susprise?</p>
+                    <div class=" mealCheck form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="mealBox1" value="mealOption1">
+                        <label class="form-check-label" for="inlineMealBox1">YES</label>
+                    </div>
+                    <div class="mealCheck form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="mealBox2" value="mealOption2">
+                        <label class="form-check-label" for="inlineMealBox2">No</label>
+                    </div>
+            
+                </div>
+            </div>
+        </section>
+<!--original-->
+        <section class="row justify-content-center p-2">
             <div class="card" style="width: 83rem;">
                 <div class="card-body">
                     <h5 class="drink">Cocktail</h5>
@@ -50,7 +69,7 @@
     </section>
 
     <main id="noShow" class="row d-flex justify-content-center">
-        <div class="card m-4 p-4" style="width: 40rem;">
+        <div class="card m-4 p-4" id="meal-recipe" style="width: 40rem;">
             <h5 class="card-title meal p-4" id="meal-recipe-title">Diner Recipe</h5>
             <img src="./assets/images/food.jpg" class="card-img-top"  id="meal-recipe-img" alt="...">
             <div class="card-body">
