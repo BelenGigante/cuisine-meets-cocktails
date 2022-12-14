@@ -5,14 +5,14 @@ var drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
  
 $(document).ready(function () {
 
-  var displayDrink = function (drink){
+  var displayDrink = function (drink) {
     $('#drink-recipe-title').text(drink.strDrink);
     $('#drink-recipe-img').attr('src', drink.strDrinkThumb);
     $('#drink-recipe-p').text(drink.strInstructions);
     
   }
 
-  var displayMeal = function (meal){
+  var displayMeal= function (meal){
     $('#meal-recipe-title').text(meal.strMeal);
     $('#meal-recipe-img').attr('src', meal.strMealThumb);
     $('#meal-recipe-p').text(meal.strInstructions);
@@ -45,7 +45,7 @@ $(document).ready(function () {
     //     console.log(error);
     //   });
 
-    if (document.getElementById('checkbox1').checked) {
+    if ($('#checkbox1').prop('checked')) {
         fetch(drinkUrl)
         .then(function (response) {
           return response.json();
@@ -58,13 +58,18 @@ $(document).ready(function () {
           console.log(error);
         });
       console.log("alcoholic");
-      document.getElementById('checkbox2').checked = false
+      $('#checkbox2').prop('checked');
+      // $('#drink-recipe').appendTo('#noShow')
     }
-    if (document.getElementById('checkbox2').checked) {
-        i
+    if ($('#checkbox2').prop('checked')) {
+
+      $('#drink-recipe').html();
+       $('#drink-recipe').css("display", "none");
+      
       console.log("no drink");
+     
     }
-    if (document.getElementById('checkbox3').checked) {
+    if ($('#checkbox3').prop('checked')) {
       console.log("non alcoholic");
     }
   });
@@ -73,19 +78,19 @@ $(document).ready(function () {
     if (event.target.value === 'option1') {
       
         console.log("alcoholic");
-      document.getElementById('checkbox2').checked = false
-      document.getElementById('checkbox3').checked = false
+      $('#checkbox2').prop('checked');
+      $('#checkbox3').prop('checked');
     }
     if (event.target.value === 'option2') {
       console.log("no drink");
       return;
-      document.getElementById('checkbox1').checked = false
-      document.getElementById('checkbox3').checked = false
+      $('#checkbox1').prop('checked');
+      $('#checkbox3').prop('checked');
     }
     if (event.target.value === 'option3') {
       console.log("non alcoholic");
-      document.getElementById('checkbox1').checked = true
-      document.getElementById('checkbox2').checked = false
+      $('#checkbox1').prop('checked');
+      $('#checkbox2').prop('checked');
     }
 
   });
