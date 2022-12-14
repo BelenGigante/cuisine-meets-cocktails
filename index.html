@@ -10,12 +10,13 @@
     <title>CMC</title>
     <link href="./assets/css/reset.css" rel="stylesheet">
     <link href="./assets/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 
 <body class="bg-secondary m-5" style="--bs-bg-opacity: .2">
     <header class="row p-2 m-2">
-        <h1 class="col-12 d-flex justify-content-center">Cuisine Meets Cocktail</h1>
+        <h1 class="col-12 d-flex justify-content-center">Cuisine Meets Cocktail<i class="fas fa-stroopwafel"></i></h1>
     </header>
 
     <section class="row p-2 justify-content-center">
@@ -44,7 +45,7 @@
                 </div>
             </div>
         </section>
-           <button class="m-5 btn btn-primary">Generate Recipe</button>
+           <button class="m-5 btn btn-primary" id="generate-recipe">Generate Recipe</button>
     </section>
 
     <main id="noShow" class="row d-flex justify-content-center">
@@ -53,7 +54,7 @@
             <img src="https://via.placeholder.com/50C/O https://placeholder.com/" class="card-img-top"  id="meal-recipe-img" alt="...">
             <div class="card-body">
                 <p class="card-text" id="meal-recipe-p"></p>
-                <a href="#" class="btn btn-primary" id="meal-recipe-video">Go somewhere</a>
+                <a href="#" class="btn btn-primary" id="meal-recipe-video" target="_blank">Youtube</a>
             </div>
         </div>
 
