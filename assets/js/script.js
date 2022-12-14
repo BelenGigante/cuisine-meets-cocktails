@@ -9,17 +9,18 @@ $(document).ready(function () {
     $('#drink-recipe-title').text(drink.strDrink);
     $('#drink-recipe-img').attr('src', drink.strDrinkThumb);
     $('#drink-recipe-p').text(drink.strInstructions);
-    //$('#nonAlcoholic').text(drink.strAlcoholic);
+  
   }
 
   var displayMeal= function (meal){
     $('#meal-recipe-title').text(meal.strMeal);
     $('#meal-recipe-img').attr('src', meal.strMealThumb);
     $('#meal-recipe-p').text(meal.strInstructions);
+    $('#meal-recipe-video').attr('href', meal.strYoutube)
     
   }
 
-  $(".btn").on("click", function () {
+  $("#generate-recipe").on("click", function () {
 
     fetch(mealUrl)
       .then(function (response) {
