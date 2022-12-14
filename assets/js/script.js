@@ -1,7 +1,7 @@
 
 var mealUrl = "https://www.themealdb.com/api/json/v1/1/random.php"
 var drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-
+var nonAlcoholic = "";
  
 $(document).ready(function () {
 
@@ -9,14 +9,14 @@ $(document).ready(function () {
     $('#drink-recipe-title').text(drink.strDrink);
     $('#drink-recipe-img').attr('src', drink.strDrinkThumb);
     $('#drink-recipe-p').text(drink.strInstructions);
-    
+    //$('#nonAlcoholic').text(drink.strAlcoholic);
   }
 
   var displayMeal= function (meal){
     $('#meal-recipe-title').text(meal.strMeal);
     $('#meal-recipe-img').attr('src', meal.strMealThumb);
     $('#meal-recipe-p').text(meal.strInstructions);
-
+    
   }
 
   $(".btn").on("click", function () {
@@ -33,33 +33,25 @@ $(document).ready(function () {
         console.log(error);
       });
 
-    // fetch(drinkUrl)
-    //   .then(function (response) {
-    //     return response.json();
-    //   })
-    //   .then(function (data) {
-    //     console.log(data);
-    //     displayDrink(data.drinks[0]);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+     fetch(drinkUrl)
+      .then(function (response) {
+       return response.json();
+         })
+       .then(function (data) {
+         console.log(data);
+         displayDrink(data.drinks[0]);
+
+          })
+        .catch(function (error) {
+        console.log(error);
+       });
 
     if ($('#checkbox1').prop('checked')) {
-        fetch(drinkUrl)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data);
-          displayDrink(data.drinks[0]);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        $('#drink-recipe').css("display", "block");
+       
       console.log("alcoholic");
-      $('#checkbox2').prop('checked');
-      // $('#drink-recipe').appendTo('#noShow')
+      $('#checkbox2').prop('click');
+   
     }
     if ($('#checkbox2').prop('checked')) {
 
@@ -69,28 +61,27 @@ $(document).ready(function () {
       console.log("no drink");
      
     }
-    if ($('#checkbox3').prop('checked')) {
-      console.log("non alcoholic");
-    }
+    
   });
 
   $(".form-check-input").on("click", function (event) {
     if (event.target.value === 'option1') {
       
         console.log("alcoholic");
-      $('#checkbox2').prop('checked');
-      $('#checkbox3').prop('checked');
+      $('#checkbox2').prop('checked',false);
+      $('#checkbox3').prop('checked',false);
     }
     if (event.target.value === 'option2') {
       console.log("no drink");
+      
+      $('#checkbox1').prop('checked',false);
+      $('#checkbox3').prop('checked',false);
       return;
-      $('#checkbox1').prop('checked');
-      $('#checkbox3').prop('checked');
     }
     if (event.target.value === 'option3') {
       console.log("non alcoholic");
-      $('#checkbox1').prop('checked');
-      $('#checkbox2').prop('checked');
+      $('#checkbox1').prop('checked',true);
+      $('#checkbox2').prop('checked',false);
     }
 
   });
