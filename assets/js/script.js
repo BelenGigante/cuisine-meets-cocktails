@@ -1,7 +1,9 @@
 
 var mealUrl = "https://www.themealdb.com/api/json/v1/1/random.php"
 var drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-var nonAlcoholic = "";
+
+
+
 
 $(document).ready(function () {
 
@@ -66,6 +68,7 @@ $(document).ready(function () {
     var drinks = $(".drink").text();
 console.log(foods);
     // console.log(drinks);
+    
 
     localStorage.setItem(foods, drinks)
   });
