@@ -19,4 +19,6 @@ Once you hit search you can visualize a picture of a random drink or meal follow
 
 ## Link
 
-[Meal Meets Cocktails](deployed url here)
+[Meal Meets Cocktails](https://belengigante.github.io/cuisine-meets-cocktails/)
+
+[Meal Meets Cocktails - Github](https://github.com/BelenGigante/cuisine-meets-cocktails/)
