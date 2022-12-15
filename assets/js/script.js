@@ -53,11 +53,11 @@ $(document).ready(function () {
                 console.log(error);
             });
 
-        if ($('#checkbox1').prop('checked')) {
+        if ($('#drinkBox1').prop('checked')) {
             $('#drink-recipe').css("display", "block");
-            $('#checkbox2').prop('click');
+            $('#drinkBox2').prop('click');
         }
-        if ($('#checkbox2').prop('checked')) {
+        if ($('#drinkBox2').prop('checked')) {
             $('#drink-recipe').html();
             $('#drink-recipe').css("display", "none");
         }
@@ -73,10 +73,10 @@ $(document).ready(function () {
 
     $(".form-check-input").on("click", function (event) {
         if (event.target.value === 'option1') {
-            $('#checkbox2').prop('checked', false);
+            $('#drinkBox2').prop('checked', false);
         }
         if (event.target.value === 'option2') {
-            $('#checkbox1').prop('checked', false);
+            $('#drinkBox1').prop('checked', false);
             return;
         }
     });
