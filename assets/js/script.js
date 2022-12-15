@@ -1,7 +1,7 @@
 
 var mealUrl = "https://www.themealdb.com/api/json/v1/1/random.php"
 var drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-
+var clearBtn = $('#clear');
 
 
 
@@ -24,26 +24,30 @@ $(document).ready(function () {
 
     $("#generate-recipe").on("click", function () {
 
+        var searched = JSON.parse(localStorage.getItem("searched")) || [];
+
         fetch(mealUrl)
             .then(function (response) {
                 return response.json();
             })
-            .then(function (data) {
-                console.log(data);
-                displayMeal(data.meals[0]);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            .then(function (mealData) {
+                fetch(drinkUrl)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (drinkData) {
+                        displayMeal(mealData.meals[0]);
+                        displayDrink(drinkData.drinks[0]);
+                        var food =mealData.meals[0].strMeal;
+                        var drink = drinkData.drinks[0].strDrink;
 
-        fetch(drinkUrl)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                console.log(data);
-                displayDrink(data.drinks[0]);
-
+                        searched.push({ food, drink });
+                        localStorage.setItem("searched", JSON.stringify(searched));
+                        displaySearched();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             })
             .catch(function (error) {
                 console.log(error);
@@ -51,45 +55,27 @@ $(document).ready(function () {
 
         if ($('#checkbox1').prop('checked')) {
             $('#drink-recipe').css("display", "block");
-
-            console.log("alcoholic");
             $('#checkbox2').prop('click');
-
         }
         if ($('#checkbox2').prop('checked')) {
-
             $('#drink-recipe').html();
             $('#drink-recipe').css("display", "none");
-            console.log("no drink");
-
         }
         if ($('#mealBox1').prop('checked')) {
             $('#meal-recipe').css("display", "block");
             $('#mealBox2').prop('click');
-
         }
         if ($('#mealBox2').prop('checked')) {
-
             $('#meal-recipe').html();
             $('#meal-recipe').css("display", "none");
         }
-        
-        var foods = $(".meal").text();
-        var drinks = $(".drink").text();
-
-
-        localStorage.setItem(foods, drinks)
     });
 
     $(".form-check-input").on("click", function (event) {
         if (event.target.value === 'option1') {
-
-            console.log("alcoholic");
             $('#checkbox2').prop('checked', false);
         }
         if (event.target.value === 'option2') {
-            console.log("no drink");
-
             $('#checkbox1').prop('checked', false);
             return;
         }
@@ -110,5 +96,27 @@ $(document).ready(function () {
     });
 
 });
+
+var displaySearched = function () {
+    var searchedEl = $('#searched');
+    var searched = JSON.parse(localStorage.getItem("searched")) || [];
+    searchedEl.empty();
+    for (var item of searched) {
+        var cardEl = $('<div class="col-8 card p-4 my-3">');
+        var cardBodyEl = $('<div class="card-body">');
+        var textEl = $('<p>').html('<dl><dt>Meal:</dt><dd>' + item.food + '</dd><dt>Drink:</dt><dd>' + item.drink + '</dd><dl>');
+        cardBodyEl.append(textEl);
+        cardEl.append(cardBodyEl);
+        searchedEl.append(cardEl);
+    }
+};
+
+clearBtn.on('click', function () {
+    localStorage.clear('searched');
+    displaySearched();
+});
+
+displaySearched();
+
 
 
