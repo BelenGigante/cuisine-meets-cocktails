@@ -15,10 +15,18 @@ As a user I want to be able to enjoy a cocktail along with a meal prepared at th
 
 Meal Meets Coctails offers two search options, standard search (drink and meal), as well as a dink or meal individualy.
 
+![](./assets/images/search.png)
+
 Once you hit search you can visualize a picture of a random drink or meal followed by preparation directions and a YouTube video access (meal recipes only).
+
+![](./assets/images/result.png)
 
 ## Link
 
 [Meal Meets Cocktails](https://belengigante.github.io/cuisine-meets-cocktails/)
 
 [Meal Meets Cocktails - Github](https://github.com/BelenGigante/cuisine-meets-cocktails/)
+
+## Visuals
+
+![](./assets/images/main.png)
